@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Sphinxxx1984 Blog</title>
+    <link>https://Sphinxxx1984.github.io/blog/</link>
+    <description>Recent content in Blogs on Sphinxxx1984 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ch-Hans</language>
+    <lastBuildDate>Tue, 08 Sep 2020 01:21:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://Sphinxxx1984.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>第一篇文章</title>
+      <link>https://Sphinxxx1984.github.io/blog/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Tue, 08 Sep 2020 01:21:00 +0800</pubDate>
+      
+      <guid>https://Sphinxxx1984.github.io/blog/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
+      <description>写在开博客之前 大概在2年半前的一个冬夜，我开了个人的微信公众号，以非常不稳定的频率更新了一年半，内容主要是音乐、个人随笔与咖啡知识。
+从去年八月到现在，我都没有在个人的公众号上更新文章，大致原因有二，第一是现实生活过于充实、忙碌，没有闲工夫写东西。第二是深感国内互联网舆论环境之差，一度丧失了表达的欲望。
+到2020年的9月，我终于闲了下来，可以安下心地在电脑前码字，分享个人的心得与一些想法。
+本博客的用途 本博客和本人的公众号大致形成一种互补的关系，但也不排除交叉的可能性。公众号可能更加偏向非技术的内容一些，博客可能偏向技术性的内容一些。
+本人的联系方式 QQ：365248110
+手机：15950926782
+微信：同手机号
+微信公众号：Sphinxxx
+微博：CoDe_BlooD
+Twitter：@sphinxxx1984
+PS：加好友时请备注姓名</description>
+    </item>
+    
+  </channel>
+</rss>
