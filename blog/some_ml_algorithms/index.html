@@ -286,20 +286,22 @@ $$\frac{\partial E_k}{\partial w_{hj}} = \frac{\partial E_k}{\partial \hat{y}_j^
 $$\frac{\partial \beta_j}{\partial w_{hj}} = b_h \ \ (4.6)$$
 我们使用的Sigmoid函数有一个很好的性质：
 $$f&rsquo;(x) = f(x)(1-f(x)) \ \ (4.7)$$
-根据式(4.1)和式(4.2)，有
+根据式(4.1)和式(4.2)，有</p>
+<div>
 $$
 \begin{aligned}
-g_j &amp;= - \frac{\partial E_k}{\partial \hat{y}_j^k} \cdot \frac{\partial \hat{y}_j^k}{\partial \beta_j} \<br>
-&amp;= -(\hat{y}_j^k - y_j^k)f&rsquo;(\beta_j - \theta_j) \<br>
-&amp;= \hat{y}_j^k(1 - \hat{y}_j^k)(y_j^k - \hat{y}_j^k) \ \ \ \ (4.8)
+g_j &= - \frac{\partial E_k}{\partial \hat{y}_j^k} \cdot \frac{\partial \hat{y}_j^k}{\partial \beta_j} \\
+&= -(\hat{y}_j^k - y_j^k)f'(\beta_j - \theta_j) \\
+&= \hat{y}_j^k(1 - \hat{y}_j^k)(y_j^k - \hat{y}_j^k) \ \ \ \ (4.8)
 \end{aligned}
 $$
+</div>
 将式(4.6)和式(4.8)带入式(4.5)，再代入式(4.4)，就得到了BP算法中关于$w_{hj}$的更新公式
 $$\Delta w_{hj} = \eta g_j b_h \ \ (4.9)$$
 类似可推出
 $$\Delta \theta_j = - \eta g_j \ \ (4.10)$$
 $$\Delta v_{ih} = \eta e_h x_i \ \ (4.11)$$
-$$\Delta \gamma_h = - \eta e_h \ \ (4.12)$$</p>
+$$\Delta \gamma_h = - \eta e_h \ \ (4.12)$$
 <p>式(4.11)和式(4.12)中</p>
 <div>
 $$
