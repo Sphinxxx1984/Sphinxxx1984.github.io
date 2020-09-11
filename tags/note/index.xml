@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Note on Sphinxxx1984 Blog</title>
+    <link>https://sphinxxx1984.github.io/tags/note/</link>
+    <description>Recent content in Note on Sphinxxx1984 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ch-Hans</language>
+    <copyright>©2020, Xinyu Ye. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 08 Sep 2020 07:35:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://sphinxxx1984.github.io/tags/note/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>一些经典机器学习分类算法的介绍</title>
+      <link>https://sphinxxx1984.github.io/blog/some_ml_algorithms/</link>
+      <pubDate>Tue, 08 Sep 2020 07:35:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/blog/some_ml_algorithms/</guid>
+      <description>Introduction 分类是什么，怎么样分类呢？分类是什么意思出自哪里？为什么一瞬间就有好多人进行分类？为什么大家都在分类？相信不少同学都想了解这个操作，下面就让小编来为大家介绍一下怎么推导经典的分类算法的详细内容。
+1 J4.8(C4.5) 决策树(dicision tree)是一种常见的机器学习方法。以二分类任务为例，我们希望从给定训练数据集学得一个模型用以对新示例进行分类，这个把样本分类的任务，可看作对“当前样本属于正类吗？”这个问题的“决策”或“判定”过程。
+顾名思义，决策树是基于树结构来进行决策的。决策过程中提出的每个判定问题都是对某个属性的“测试”，每个测试的结果或是导出最终结论，或是导出进一步的判定问题，其考虑范围是在上次决策结果的限定范围之内。决策过程的最终结论对应了我们所希望的判定结果。
+一般地，一棵决策树包含一个根结点、若干个内部结点和若干个叶结点；叶结点对应于决策结果，其他每个结点则对应于一个属性测试；每个结点包含的样本集合根据属性测试的结果被划分到子结点中；根结点包含样本全集。从根结点到每个叶结点的路径对应了一个判定测试序列。
+决策树学习的目的是为了产生一棵泛化能力强，即处理未见示例能力强的决策树，其基本流程遵循简单而直观的分治策略：自根至叶的一个递归过程，在每个中间结点寻找一个“划分”(split or test)属性。决策树的学习有3种停止条件：当前结点包含的样本全属于同一类别，无需划分；当前属性集为空，或是所有样本在所有属性上取值相同，无法划分；当前结点包含的样本集合为空，不能划分。
+在ID3算法中，使用信息增益(information gain)来选择最优划分属性。 计算公式为: $$\text{Ent}(D) = - \sum_{k = 1}^{|y|}p_{k}\log_{2}p_{k}(if\ p_k = 0,\ p_{k}\log_{2}p_{k} = 0) \ \ (1.1)$$ $$\text{Gain}(D, a) = \text{Ent}(D) - \sum_{v = 1}^{V}\frac{|D^v|}{|D|}\text{Ent}(D^v) \ \ (1.2)$$ ID3算法在实际应用中存在问题：对于可取值数目较多的属性有偏好。Quinlan又在1993年提出了改进版本C4.5算法，使用增益率(gain ratio)来选择最优划分属性。 计算公式为: $$\text{IV}(a) = - \sum_{v = 1}^{V}\frac{|D^v|}{|D|}\log_2\frac{|D^v|}{|D|} \ \ (1.3)$$
+$$\text{Gain_ratio}(D, a) = \frac{\text{Gain}(D, a)}{\text{IV}(a)} \ \ (1.4)$$其中IV(a)称为属性a的“固有值”(intrinsic value)。属性a的可能取值数目越多（即V越大），则IV(a)的值通常会越大。 需要注意的是，增益率准则对可取值数目较少的属性有所偏好，因此，C4.5算法并不是直接选择增益率最大的候选划分属性，而是使用了一个启发式：先从候选划分属性中找出信息增益高于平均水平的属性，再从中选择增益率最高的。
+此外，C4.5算法还在以下几方面对ID3算法有所改进：预剪枝处理、连续值处理（二分法）、缺失值处理。
+C4.5算法产生的分类规则容易理解且准确率较高。但是，在构造决策树的过程中，C4.5算法需要对数据集进行多次的顺序扫描和排序，导致算法的效率比较低下。当数据集的大小超过内存时。C4.5算法是无法运行的。
+C4.5在Weka中的实现为J4.8。
+2 Naïve Bayes 贝叶斯决策论(Bayesian decision theory)是概率框架下实施决策的基本方法。对分类任务来说，在所有相关概率都已知的理想情形下，贝叶斯决策论考虑如何基于这些概率和误判损失来选择最优的类别表及。下面以多分类任务为例解释其基本原理。</description>
+    </item>
+    
+  </channel>
+</rss>

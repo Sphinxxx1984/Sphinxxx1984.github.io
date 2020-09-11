@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ch-Hans">
+
+<head>
+  <title>一些经典机器学习分类算法的介绍 | Sphinxxx1984 Blog</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="常用机器学习分类算法">
+  <meta name="keywords" content="ML , 算法 , 分类">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="一些经典机器学习分类算法的介绍" />
+  <meta name="twitter:description" content="常用机器学习分类算法"/>
+  <meta name="twitter:site" content="https://twitter.com/sphinxxx1984" />
+  <meta name="twitter:creator" content="https://twitter.com/sphinxxx1984" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sphinxxx1984.github.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "一些经典机器学习分类算法的介绍",
+      "headline" : "一些经典机器学习分类算法的介绍",
+      "description" : "常用机器学习分类算法",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-09-08 07:35:00 \u002b0800 CST",
+      "dateModified" : "2020-09-08 07:35:00 \u002b0800 CST",
+      "url" : "https:\/\/sphinxxx1984.github.io\/blog\/some_ml_algorithms\/",
+      "wordCount" : "937",
+      "keywords" : ["ML", "算法", "分类", "Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/friends">friends</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">一些经典机器学习分类算法的介绍</h1>
+            <time datetime="2020-09-08 07:35:00 &#43;0800 CST" class="post__date">2020-09-08 07:35 CST</time> 
+          </header>
+          <article class="post__content">
+              
+<h2 id="introduction">Introduction<a class="anchor" href="#introduction">#</a></h2>
+<p>分类是什么，怎么样分类呢？分类是什么意思出自哪里？为什么一瞬间就有好多人进行分类？为什么大家都在分类？相信不少同学都想了解这个操作，下面就让小编来为大家介绍一下怎么推导经典的分类算法的详细内容。</p>
+<h2 id="1-j48c45">1 J4.8(C4.5)<a class="anchor" href="#1-j48c45">#</a></h2>
+<p>决策树(dicision tree)是一种常见的机器学习方法。以二分类任务为例，我们希望从给定训练数据集学得一个模型用以对新示例进行分类，这个把样本分类的任务，可看作对“当前样本属于正类吗？”这个问题的“决策”或“判定”过程。</p>
+<p>顾名思义，决策树是基于树结构来进行决策的。决策过程中提出的每个判定问题都是对某个属性的“测试”，每个测试的结果或是导出最终结论，或是导出进一步的判定问题，其考虑范围是在上次决策结果的限定范围之内。决策过程的最终结论对应了我们所希望的判定结果。</p>
+<p>一般地，一棵决策树包含一个根结点、若干个内部结点和若干个叶结点；叶结点对应于决策结果，其他每个结点则对应于一个属性测试；每个结点包含的样本集合根据属性测试的结果被划分到子结点中；根结点包含样本全集。从根结点到每个叶结点的路径对应了一个判定测试序列。</p>
+<p>决策树学习的目的是为了产生一棵泛化能力强，即处理未见示例能力强的决策树，其基本流程遵循简单而直观的分治策略：自根至叶的一个递归过程，在每个中间结点寻找一个“划分”(split or test)属性。决策树的学习有3种停止条件：当前结点包含的样本全属于同一类别，无需划分；当前属性集为空，或是所有样本在所有属性上取值相同，无法划分；当前结点包含的样本集合为空，不能划分。</p>
+<p>在ID3算法中，使用信息增益(information gain)来选择最优划分属性。
+计算公式为:
+$$\text{Ent}(D) = - \sum_{k = 1}^{|y|}p_{k}\log_{2}p_{k}(if\ p_k = 0,\ p_{k}\log_{2}p_{k} = 0) \ \ (1.1)$$
+$$\text{Gain}(D, a) = \text{Ent}(D) - \sum_{v = 1}^{V}\frac{|D^v|}{|D|}\text{Ent}(D^v) \ \ (1.2)$$
+ID3算法在实际应用中存在问题：对于可取值数目较多的属性有偏好。Quinlan又在1993年提出了改进版本C4.5算法，使用增益率(gain ratio)来选择最优划分属性。
+计算公式为:
+$$\text{IV}(a) = - \sum_{v = 1}^{V}\frac{|D^v|}{|D|}\log_2\frac{|D^v|}{|D|} \ \ (1.3)$$</p>
+<div>
+$$\text{Gain_ratio}(D, a) = \frac{\text{Gain}(D, a)}{\text{IV}(a)}  \ \ (1.4)$$
+</div>
+其中IV(a)称为属性a的“固有值”(intrinsic value)。属性a的可能取值数目越多（即V越大），则IV(a)的值通常会越大。  
+<p><img src="/math-test/2.1.jpg" alt="pic"></p>
+<p>需要注意的是，增益率准则对可取值数目较少的属性有所偏好，因此，C4.5算法并不是直接选择增益率最大的候选划分属性，而是使用了一个启发式：先从候选划分属性中找出信息增益高于平均水平的属性，再从中选择增益率最高的。</p>
+<p>此外，C4.5算法还在以下几方面对ID3算法有所改进：预剪枝处理、连续值处理（二分法）、缺失值处理。</p>
+<p>C4.5算法产生的分类规则容易理解且准确率较高。但是，在构造决策树的过程中，C4.5算法需要对数据集进行多次的顺序扫描和排序，导致算法的效率比较低下。当数据集的大小超过内存时。C4.5算法是无法运行的。</p>
+<p>C4.5在Weka中的实现为J4.8。</p>
+<h2 id="2-naïve-bayes">2 Naïve Bayes<a class="anchor" href="#2-naïve-bayes">#</a></h2>
+<p>贝叶斯决策论(Bayesian decision theory)是概率框架下实施决策的基本方法。对分类任务来说，在所有相关概率都已知的理想情形下，贝叶斯决策论考虑如何基于这些概率和误判损失来选择最优的类别表及。下面以多分类任务为例解释其基本原理。</p>
+<p>假设有$N$种可能的类别标记，即$\mathbf{Y} = {c_1, c_2, \cdots, c_N }$，$\lambda_{ij}$是将一个真实标记为$c_j$的样本误分类为$c_i$所产生的损失。基于后验概率$\text{P}(c_i | \mathbf{x})$可获得将样本$\mathbf{x}$分类为$c_i$所产生的期望损失，即在样本$\mathbf{x}$上的“条件风险”(conditional risk)
+$$\text{R}(c_i | \mathbf{x}) = \sum_{j = 1}^N \lambda_{ij} \text{P}(c_j | \mathbf{x})\ \ (2.1)$$
+我们的任务是寻找一个判定准则$h: \mathbf{X} \rightarrow \mathbf{Y}$以最小化总体风险
+$$\text{R}(h) = \mathbb{E}(\text{R}(h(\mathbf{x}) | \mathbf{x}))\ \ (2.2)$$
+显然，对每个样本$\mathbf{x}$，若$h$能最小化条件风险，则总体风险$\text{R}(h)$也将被最小化。这就产生了贝叶斯判定准则(Bayes decision rule)：为最小化总体风险，只需在每个样本上选择那个能使条件风险$\text{R}(c | \mathbf{x})$最小的类别标记，即</p>
+<div>
+$$h^{*}(\mathbf{x}) = argmin_{c \in \mathbf{Y}} \text{R}(c|\mathbf{x}) (2.3)$$
+</div>
+此时，$h^{*}$称为贝叶斯最优分类器(Bayes optimal classifier)，与之对应的总体风险$\text{R}(h^{*})$称为贝叶斯风险(Bayes risk)。
+$1 - \text{R}(h^{*})$反映了分类器所能达到的最好性能，即通过机器学习所能产生的模型精度的理论上限。  
+<p><img src="/math-test/2.2.jpg" alt="pic">
+具体来说，若目标是最小化分类错误率，则误判损失$\lambda_{ij}$可写为</p>
+<div>
+$$ \lambda_{ij} = \left\{
+\begin{aligned}
+&0, &&if\ i = j\\
+&1, &&otherwise
+\end{aligned}
+\right. \ \ (2.4)$$
+</div>
+此时条件风险
+$$\text{R}(c | \mathbf{x}) = 1 - \text{P}(c | \mathbf{x}) \ \ (2.5)$$
+于是最小化分类错误率的贝叶斯最优分类器为
+$$h^{*}(\mathbf{x}) = argmin_{c \in \mathbf{Y}} \text{P}(c|\mathbf{x})\ \ (2.6)$$
+即对每个样本$\mathbf{x}$，选择能使后验概率$\text{P}(c | \mathbf{x})$最大的类别标记。  
+<p>不难看出，欲使用贝叶斯判定准则来最小化决策风险，首先要获得后验概率$\text{P}(c | \mathbf{x})$。然而，在现实任务中这通常难以直接获得。从这个角度来看，机器学习所要实现的是基于有限的训练样本集尽可能准确地估计出后验概率$\text{P}(c | \mathbf{x})$。大体来说，主要有两种策略：给定$\mathbf{x}$，可通过直接建模$\text{P}(c | \mathbf{x})$来预测$c$，这样得到的是“判别式模型”(discriminative models)；也可先对联合概率分布$\text{P}(\mathbf{x}, c)$建模，然后再由此获得$\text{P}(c | \mathbf{x})$，这样得到的是“生成式模型”(generative models)。</p>
+<p>决策树、BP神经网络、支持向量机都属于判别式模型的范畴。对于生成式模型来说，必然考虑
+$$\text{P}(c | \mathbf{x}) = \frac{\text{P}(\mathbf{x}, c)}{\text{P}(\mathbf{x})} \ \ (2.7)$$
+基于贝叶斯定理，$\text{P}(c | \mathbf{x})$可以写成
+$$\text{P}(c | \mathbf{x}) = \frac{\text{P}(c)\text{P}(\mathbf{x}|c)}{\text{P}(\mathbf{x})} \ \ (2.8)$$
+其中$\text{P}(c)$是类先验概率，$\text{P}(\mathbf{x}|c)$是样本$\mathbf{x}$相对于类标记$c$的类条件概率，也称为似然；$\text{P}(\mathbf{x})$是用于归一化的证据因子。</p>
+<p>对给定样本$\mathbf{x}$，证据因子$\text{P}(\mathbf{x})$与类标记无关，因此估计$\text{P}(c | \mathbf{x})$的问题就转化为如何基于训练数据$D$来估计先验$\text{P}(c)$和似然$\text{P}(\mathbf{x}|c)$。
+类先验概率$\text{P}(c)$表达了样本空间中各类样本所占的比例，根据大数定律，当训练集包含充足的独立同分布样本时，$\text{P}(c)$可通过各类样本出现的频率来进行估计。对类条件概率$\text{P}(\mathbf{x}|c)$来说，由于它涉及关于$\mathbf{x}$所有属性的联合概率，直接根据样本出现的频率来估计将会遇到严重的困难。</p>
+<p>不难发现，根据贝叶斯公式(2.8)来估计后验概率的主要困难在于：类条件概率$\text{P}(\mathbf{x}|c)$是所有属性上的联合概率，难以从有限的训练样本中直接估计而得。为避开这个障碍，朴素贝叶斯分类器采用了“属性条件独立性假设”：对已知类别，假设所有属性相互独立。换言之，假设每个属性独立地对分类结果发生影响。</p>
+<p>基于该假设，式(2.8)可重写为
+$$\text{P}(c | \mathbf{x}) = \frac{\text{P}(c)\text{P}(\mathbf{x}|c)}{\text{P}(\mathbf{x})} = \frac{\text{P}(c)}{\text{P}(\mathbf{x})}\prod_{i = 1}^{d}\text{P}(x_i|c) \ \ (2.9)$$
+其中$d$为属性数目，$x_i$为样本$\mathbf{x}$在第$i$个属性上的取值。</p>
+<p>由于对所有类别来说$\text{P}(\mathbf{x})$相同，因此基于式(2.6)的贝叶斯判定准则有
+$$h_{nb} ( \mathbf{x} ) = argmin_{c \in \mathbf{Y}} \text{P}(c)\prod_{i = 1}^{d}\text{P}(x_i|c) \ \ (2.10) $$
+这就是朴素贝叶斯分类器的表达式。</p>
+<p>显然，朴素贝叶斯分类器的训练过程就是基于训练集$D$来估计类先验概率$\text{P}(c)$，并为每个属性估计条件概率$\text{P}(x_i|c)$。</p>
+<p>令$D_c$表示训练集$D$中第$c$类样本组成的集合，若有充足的独立同分布样本，则可容易地估计出类先验概率
+$$\text{P}(c) =  \frac{|D_c|}{|D|} \ \ (2.11)$$
+对离散属性而言，令$D_{c, x_i}$表示$D_c$中在第$i$个属性上取值为$x_i$的样本组成的集合，则条件概率$\text{P}(x_i|c)$可估计为
+$$\text{P}(x_i|c) = \frac{|D_{c, x_i}|}{|D|} \ \ (2.12)$$
+对连续属性可考虑概率密度函数，假定$p(x_i|c) \sim N(\mu_{c, i}, \sigma_{c, i}^2)$，其中$\mu_{c, i}$和$\sigma_{c, i}^2$分别是第$c$类样本在第$i$个属性上取值的均值和方差，则有
+$$p(x_i | c) = \frac{1}{\sqrt{2\pi}\sigma_{c,i}} \exp(-\frac{(x_i - \mu_{c,i})^2}{2 \sigma_{c, i}^2}) \ \ (2.13)$$
+为了避免其他属性携带的信息被训练集中未出现的属性值“抹去”，在估计概率值时通常要进行平滑操作，常用的方法是拉普拉斯修正(Laplacian correction)。具体来说，令$N$表示训练集$D$中可能的类别数，$N_i$表示第$i$个属性可能的取值数，则式(2.11)和式(2.12)分别修正为
+$$\hat{P}(c) =  \frac{|D_c|+1}{|D|+N} \ \ (2.14)$$
+$$\hat{P}(x_i|c) = \frac{|D_{c, x_i}| + 1}{|D| + N_i} \ \ (2.15)$$
+拉普拉斯修正避免了因训练样本不充分而导致概率估值为零的问题，并且在训练集变大时，修正过程所引入的先验的影响也会逐渐变得可忽略，使得估值渐趋向于实际概率值。</p>
+<p>在现实任务中朴素贝叶斯分类器有多种使用方式。如果任务对预测速度要求较高，则对于给定训练集，可将朴素贝叶斯分类器涉及的所有概率估值事先计算好存储起来，这样在进行预测时只需查表即可进行判别。如果任务数据更替频繁，则可采用“懒惰学习”方式，先不进行任何训练，待收到预测请求时再根据当前数据集进行概率估值；若数据不断增加，则可在现有估值基础上，仅对新增样本的属性值设计的概率估值进行计数修正即可实现增量学习。</p>
+<h2 id="3-svm">3 SVM<a class="anchor" href="#3-svm">#</a></h2>
+<p>以二分类任务为例，给定训练样本集<code>$D = \{(\mathbf{x}_1, y_1), (\mathbf{x}_2, y_2), \cdots, (\mathbf{x}_m, y_m)\}, \ y_i \in \{+1, -1\}$</code>，分类学习最基本的想法就是基于训练集$D$在样本空间中找到一个划分超平面，将不同类别的样本分开。
+这样的超平面有很多，应该去找到泛化性能最好的那一个，可以规避训练集的局限性和噪声的影响。换言之，这个划分超平面所产生的分类结果是最鲁棒的，对未见示例的泛化能力最强。
+<img src="/math-test/2.3.jpg" alt="pic">
+在样本空间中，划分超平面可通过如下线性方程来描述:
+$$\mathbf{w}^\top \mathbf{x} + b = 0 \ \ (3.1)$$
+其中$\mathbf{w} = (w_1; w_2; \cdots; w_d)$为法向量，决定了超平面的方向；$b$为位移项，决定了超平面和原点之间的距离。显然，划分超平面可被法向量$\mathbf{w}$和位移$b$确定，下面我们将其记为$(\mathbf{w}, b)$。样本空间中任意点$\mathbf{x}$到超平面$(\mathbf{w}, b)$的距离可写为
+$$r = \frac{|\mathbf{w}^\top \mathbf{x} + b|}{||\mathbf{w}||} \ \ (3.2)$$
+假设超平面$(\mathbf{w}, b)$能将训练样本正确分类，即对于<code>$(\mathbf{x}_i, y_i) \in D$</code>，若$y_i = +1$，则有$\mathbf{w}^\top \mathbf{x} + b &gt; 0$；若$y_i = -1$，则有$\mathbf{w}^\top \mathbf{x} + b &lt; 0$。令</p>
+<div>
+$$  \left\{
+\begin{aligned}
+&\mathbf{w}^\top \mathbf{x}_i + b \geq +1, &&y_i = +1\\
+&\mathbf{w}^\top \mathbf{x}_i + b \leq -1, &&y_i = -1
+\end{aligned}
+\right. \ \ (3.3)$$
+</div>
+距离超平面最近的几个训练样本使得式(3.3)的等号成立，它们被称为“支持向量”(support vector)。两个异类支持向量到超平面的距离之和为
+$$\gamma =  \frac{2}{||\mathbf{w}||} \ \ (3.4)$$
+这个$\gamma$被称为“间隔”(margin)。
+之前提到要找的泛化性能最好的超平面，就是间隔最大的超平面。欲找到具有最大间隔的超平面，也就是说
+$$
+\begin{aligned}
+& \max \limits_{\mathbf{w}, b} \frac{2}{||\mathbf{w}||} \\
+& \text{s.t.}\ y_i(\mathbf{w}^\top \mathbf{x}_i + b) \geq 1, \ i = 1, 2, \cdots, m
+\end{aligned}
+\ \ (3.5)$$
+显然，为了最大化间隔，仅需最大化$||\mathbf{w}||^{-1}$，这等价于最小化$||\mathbf{w}||^{2}$。于是式(3.5)可重写为
+$$
+\begin{aligned}
+& \min \limits_{\mathbf{w}, b} \frac{1}{2}{||\mathbf{w}||}^{2} \\
+& \text{s.t.}\ y_i(\mathbf{w}^\top \mathbf{x}_i + b) \geq 1, \ i = 1, 2, \cdots, m
+\end{aligned}
+\ \ (3.6)$$
+这就是支持向量机(Support Vector Machine，简称SVM)的基本型。
+对式(3.6)使用拉格朗日乘子法，可以得到其对偶问题(dual problem)。
+$$
+\begin{aligned}
+& \max \limits_{\mathbf{\alpha}} \sum_{i=1}^{m}\alpha_i - \frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m{\alpha_i\alpha_j y_i y_j \mathbf{x}^\top_i\mathbf{x}_j}\\
+& \text{s.t.}\  \sum_{i=1}^{m}\alpha_i y_i= 0, \ i = 1, 2, \cdots, m
+\end{aligned}
+\ \ (3.7)$$
+解出$\mathbf{\alpha}$后，求出$\mathbf{w}$和$b$即可得到模型
+$$ f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b = \sum_{i=1}^{m}\alpha_iy_i\mathbf{x}^\top_i\mathbf{x} + b \ \ (3.8)$$
+从对偶问题(3.7)中解出的$\alpha_i$是拉格朗日乘子，它恰对应训练样本$(\mathbf{x}_i, y_i)$。注意到式(3.6)中有不等式约束，因此上述过程需满足KKT(Karush-Kuhn-Tucker)条件，即要求
+$$
+ \left\{
+\begin{aligned}
+&\alpha_i \geq 0\\
+&y_if(\mathbf{x}_i)-1 \geq 0 \\
+&\alpha_i(y_if(\mathbf{x}_i)-1) = 0
+\end{aligned}
+\right. \ \ (3.9) $$
+于是对于任意训练样本$(\mathbf{x}_i, y_i) \in D$，总有$\alpha_i = 0$或$y_if(\mathbf{x}_i) = 1$。若$\alpha_i = 0$，则该样本不会在式(3.8)的求和中出现，也就不会对$f(\mathbf{x})$有任何影响；若$\alpha_i > 0$，则必有$y_if(\mathbf{x}_i) = 1$，所对应的样本点位于最大间隔边界上，是一个支持向量。这显示出支持向量机的一个重要性质：训练完成后，大部分的训练样本都不需要保留，最终模型仅与支持向量有关。
+<p>那么如何求解式(3.7)呢？不难发现，这是一个二次规划问题，可以使用通用的二次规划算法求解。但是该问题的规模正比于训练样本数，会在实际任务中造成很大的开销。为了避开这个障碍，可以使用SMO(Sequential Minimal Optimization)算法。Weka中的支持向量机模型使用的也正是SMO算法。</p>
+<p>SMO算法的基本思路是先固定$\alpha_i$之外的所有参数，然后求$\alpha_i$上的极值。由于存在约束$\sum_{i=1}^{m}\alpha_i y_i= 0$，若固定$\alpha_i$之外的其他变量，则$\alpha_i$可由其他变量导出。于是，SMO每次选择两个变量$\alpha_i$和$\alpha_j$，并固定其他参数。这样，在参数初始化后，SMO不断执行如下两个步骤直至收敛:</p>
+<ul>
+<li>选取一对需更新的变量$\alpha_i$和$\alpha_j$；</li>
+<li>固定$\alpha_i$和$\alpha_j$以外的参数，求解式(3.7)获得更新后的$\alpha_i$和$\alpha_j$。</li>
+</ul>
+<p>注意到，只需选取的$\alpha_i$和$\alpha_j$中有一个不满足KKT条件(3.9)，目标函数就会在迭代后增大。直观来看，KKT条件违背的程度越大，则变量更新后可能导致的目标函数值增幅越大。于是，SMO先选取违背KKT条件程度最大的变量。第二个变量应选择一个使目标函数值增长最快的变量，但由于比较各变量所对应的目标函数值增幅的复杂度过高，因此SMO采用了一个启发式：使选区的两变量所对应样本之间的间隔最大。一种直观的解释是，这样的两个变量有很大的差别，与对两个相似的变量进行更新想必，对它们进行更新会给目标函数值更大的变化。</p>
+<p>SMO算法之所以高效，恰由于在固定其他参数后，仅优化两个参数的过程能做到非常高效。具体来说，仅考虑$\alpha_i$和$\alpha_j$时，式(3.7)中的约束可重写为
+$$\alpha_iy_i + \alpha_jy_j = c,\ \ \alpha_i \geq 0, \ \ \alpha_j \geq 0 \ \ (3.10)$$
+其中
+$$c = - \sum_{k \neq i, j}\alpha_ky_k \ \ (3.11)$$
+是使$\sum_{i=1}^{m}\alpha_i y_i= 0$成立的常数。用$\alpha_iy_i + \alpha_jy_j = c$消去式(3.7)中的变量$\alpha_j$，则得到一个关于$\alpha_i$的单变量二次规划问题，仅有的约束是$\alpha_i \geq 0$。不难发现，这样的二次规划问题具有闭式解，于是不必调用数值优化算法即可高效地计算出更新后的$\alpha_i$和$\alpha_j$。</p>
+<p>如何确定偏移项$b$呢？注意到对任意支持向量<code>$(\mathbf{x}_s, y_s)$</code>都有<code>$y_sf(\mathbf{x}_s) = 1$</code>，即
+$$y_s(\sum_{i \in S}\alpha_iy_i\mathbf{x}^\top_i\mathbf{x}_s + b) = 1 \ \ (3.12)$$
+其中$S = { i|\alpha_i &gt; 0, i = 1, 2, \cdots, m}$为所有支持向量的下标集。理论上，可选取任意支持向量并通过求解式(3.12)获得$b$，但现实任务中常采用一种更鲁棒的做法：使用所有支持向量求解的平均值
+$$b = \frac{1}{|S|}\sum_{s \in S}(\frac{1}{y_s} - \sum_{i \in S}\alpha_iy_i\mathbf{x}^\top_i\mathbf{x}_s) \ \ (3.13)$$</p>
+<h2 id="4-neural-network">4 Neural Network<a class="anchor" href="#4-neural-network">#</a></h2>
+<p>神经网络(Neural Network)中最基本的成分是神经元模型。1943年，McCulloch和Pitts将生物的神经元抽象为M-P神经元模型。在这个模型中，神经元接收到来自n个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过激活函数处理以产生神经元的输出。</p>
+<p>理想中的激活函数是一个阶跃函数，它将输入值映射为输出值0或1，1对应神经元兴奋，0对应神经元抑制。然而阶跃函数具有不连续、不光滑等不太好的性质，因此实际常用Sigmoid函数作为激活函数。典型的Sigmoid函数的表达式为$sigmoid(x) = \frac{1}{1 + e^{-x}}$，它把可能在较大范围内变化的输入值挤压到(0, 1)输出值范围内，因此有时也称为挤压函数。</p>
+<p>把许多个这样的神经元按一定的层次结构连接起来，就得到了神经网络。</p>
+<p>Weka中的神经网络模型使用的是BP算法。BP算法指的是误差逆传播(error BackPropagation)算法，它是迄今最成功的神经网络学习算法。我们说BP网络时，通常指的是用BP算法训练的多层前馈神经网络。
+<img src="/math-test/2.4.png" alt="pic"></p>
+<p>给定训练集<code>$D = \{(\mathbf{x}_1, \mathbf{y}_1), (\mathbf{x}_2, \mathbf{y}_2), \cdots, (\mathbf{x}_m, \mathbf{y}_m)\}, \mathbf{x}_i \in \mathbb{R}^d, \mathbf{y}_i \in \mathbb{R}^l$</code>，即输入示例由$d$个数学描述，输出$l$维实值向量。<br>
+为了便于讨论，给出一个拥有$d$个输入神经元、$l$个输出神经元、$q$个隐层神经元的多层前馈网络结构，其中输出层第$j$个神经元的阈值用$\theta_j$表示，隐层第$h$个神经元的阈值用$\gamma_h$表示。输入层第$i$个神经元与隐层第$h$个神经元之间的连接权为$v_{ih}$，隐层第$h$个神经元与输出层第$j$个神经元之间的连接权为$w_{hj}$。记隐层第$h$个神经元接收到的输入为$\alpha_h = \sum_{i = 1}^{d}v_{ih}x_i$，输出层第$j$个神经元接收到的输入为$\beta_j = \sum_{h = q}^{d}w_{hj}b_h$，其中$b_h$为隐层第$h$个神经元的输出。假设隐层和输出层神经元都使用$sigmoid(x) = \frac{1}{1 + e^{-x}}$作为激活函数。</p>
+<p>对训练例$(\mathbf{x}_k, \mathbf{y}_k)$，假定神经网络的输出为<code>${\hat{\mathbf{y}}}_k = (\hat{y}_1^k, \hat{y}_2^k, \cdots, \hat{y}_l^k)$</code>，即</p>
+<div>
+$$\hat{y}_j^k = f(\beta_j - \theta_j) \ \ (4.1)$$
+</div>
+则网络在`$(\mathbf{x}_k, \mathbf{y}_k)$`上的均方误差为
+$$E_k = \frac{1}{2} \sum_{j = 1}^l(\hat{y}_j^k - y_j^k)^2 \ \ (4.2)$$
+<p>神经网络模型中有$(d+l+1)q+l$个参数需要确定：输入层到隐层的$d \times q$个权值、隐层到输出层的$q \times l$个权值、$q$个隐层神经元的阈值、$l$个输出层神经元的阈值。BP是一个迭代学习算法，在迭代的每一轮中采用广义的感知机学习规则对参数进行更新估计，任意参数$v$的更新估计式为
+$$v \leftarrow v + \Delta v \ \ (4.3)$$
+下面以隐层到输出层的连接权$w_{hj}$为例来进行推导。</p>
+<p>BP算法基于梯度下降策略，以目标的负梯度方向对参数进行调整。对式(4.2)的误差$E_k$，给定学习率$\eta$，有
+$$\Delta w_{hj} = -\eta \frac{\partial E_k}{\partial w_{hj}} \ \ (4.4)$$
+注意到，$w_{hj}$先影响到第$j$个输出层神经元的输入值$\beta_j$，再影响到其输出值$\hat{y}_j^k$，然后影响到$E_k$，有
+$$\frac{\partial E_k}{\partial w_{hj}} = \frac{\partial E_k}{\partial \hat{y}_j^k} \cdot \frac{\partial \hat{y}_j^k}{\partial \beta_j} \cdot \frac{\partial \beta_j}{\partial w_{hj}} \ \ (4.5)$$</p>
+<p>根据$\beta_j$的定义，显然有
+$$\frac{\partial \beta_j}{\partial w_{hj}} = b_h \ \ (4.6)$$
+我们使用的Sigmoid函数有一个很好的性质：
+$$f&rsquo;(x) = f(x)(1-f(x)) \ \ (4.7)$$
+根据式(4.1)和式(4.2)，有</p>
+<div>
+$$
+\begin{aligned}
+g_j &= - \frac{\partial E_k}{\partial \hat{y}_j^k} \cdot \frac{\partial \hat{y}_j^k}{\partial \beta_j} \\
+&= -(\hat{y}_j^k - y_j^k)f'(\beta_j - \theta_j) \\
+&= \hat{y}_j^k(1 - \hat{y}_j^k)(y_j^k - \hat{y}_j^k) \ \ \ \ (4.8)
+\end{aligned}
+$$
+</div>
+将式(4.6)和式(4.8)带入式(4.5)，再代入式(4.4)，就得到了BP算法中关于$w_{hj}$的更新公式
+$$\Delta w_{hj} = \eta g_j b_h \ \ (4.9)$$
+类似可推出
+$$\Delta \theta_j = - \eta g_j \ \ (4.10)$$
+$$\Delta v_{ih} = \eta e_h x_i \ \ (4.11)$$
+$$\Delta \gamma_h = - \eta e_h \ \ (4.12)$$
+<p>式(4.11)和式(4.12)中</p>
+<div>
+$$
+\begin{aligned}
+e_h &= - \frac{\partial E_k}{\partial b_h} \cdot \frac{\partial b_h}{\partial \alpha_h} \\
+&= - \sum_{j = 1}^l  \frac{\partial E_k}{\partial \beta_j} \cdot \frac{\partial \beta_j}{\partial b_h} f'(\alpha_h - \gamma_h)\\
+&= - \sum_{j = 1}^l w_{hj}g_j f'(\alpha_h - \gamma_h)\\
+&= b_h(1 - b_h) \sum_{j = 1}^l w_{hj}g_j \ \ \ \ \ \ \ \ \ \ \  \ \ (4.13)
+\end{aligned}
+$$
+</div>
+学习率$\eta \in (0, 1)$控制着算法每一轮迭代中的更新步长，若太大则容易震荡，太小则收敛速度又会过慢。有时为了做精细调节，可令式(4.9)和式(4.10)使用$\eta_1$，式(4.11)和式(4.12)使用$\eta_2$，两者未必相等。
+<p>BP算法的整体工作流程如下：</p>
+<p>输入：训练集<code>$D = \{ (\mathbf{x}_k, \mathbf{y}_k)\}_{k=1}^m$，学习率$\eta$</code><br>
+过程：
+1: 在(0, 1)范围内随机初始化网络中所有连接权和阈值<br>
+2: <strong>repeat</strong><br>
+3:  <strong>for all</strong> <code>$(\mathbf{x}_k, \mathbf{y}_k) \in D$</code> <strong>do</strong><br>
+4:   根据当前参数和式(4.1)计算当前样本的输出<code>$\hat{\mathbf{y}}_k$</code>;<br>
+5:   根据式(4.8)计算输出层神经元的梯度项$g_j$;<br>
+6:   根据式(4.13)计算隐层神经元的梯度项$e_h$;<br>
+7:   根据式(4.9)-式(4.12)更新连接权<code>$w_{hj}, v_{ih}$</code>与阈值<code>$\theta_j, \gamma_h$</code>;<br>
+8:  <strong>end for</strong>s<br>
+9: <strong>until</strong>达到停止条件<br>
+输出：连接权与阈值确定的多层前馈神经网络</p>
+<h2 id="5-knn">5 kNN<a class="anchor" href="#5-knn">#</a></h2>
+<p>$k$近邻($k-Nearest\ Neighbor$，简称$kNN$)学习是一种常用的监督学习方法，其工作机制非常简单：给定测试样本，基于某种距离度量找出训练集中与其最靠近的$k$个训练样本，然后基于这$k$个“邻居”的信息来进行预测。通常，在分类任务重可使用“投票法”，即选择这$k$个样本中出现最多的类别标记作为预测结果。
+<img src="/math-test/2.5.png" alt="pic">
+$k$近邻学习并没有显式的训练过程，它也属于一种懒惰学习。在训练阶段，它仅仅把训练集的样本保存起来，训练时间开销为零，待收到测试样本后再进行处理。</p>
+<p>$k$是一个重要参数，当$k$取不同值时，分类结果会有显著的不同。另一方面，若采用不同的距离计算方式，则找出的“近邻”可能有显著差别，从而也会导致分类结果有显著不同。</p>
+<p>通过简单的计算可以得知，最近邻分类器($k = 1$)在二分类问题上的泛化错误率不超过贝叶斯最优分类器的错误率的两倍。</p>
+<h2 id="summary">Summary<a class="anchor" href="#summary">#</a></h2>
+<p>看了小编为您精心准备的数学公式推导后是不是收获非常丰富呢，现在可以把上面那些公式全丢掉了，开始调包&amp;调参的奇妙之旅吧！</p>
+<h2 id="references">References<a class="anchor" href="#references">#</a></h2>
+<ul>
+<li>《机器学习》 周志华</li>
+<li>图片来源于网络</li>
+</ul>
+
+
+              
+                  
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://sphinxxx1984.github.io/tags/ml/">ml</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://sphinxxx1984.github.io/tags/note/">note</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://sphinxxx1984.github.io/blog/first_post/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">第一篇文章</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/sphinxxx1984"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/Sphinxxx1984"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Email"
+         href="mailto:sphinx1984@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/email.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>©2020, Xinyu Ye. All rights reserved.</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">一些经典机器学习分类算法的介绍</div> 
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#1-j48c45">1 J4.8(C4.5)</a></li>
+    <li><a href="#2-naïve-bayes">2 Naïve Bayes</a></li>
+    <li><a href="#3-svm">3 SVM</a></li>
+    <li><a href="#4-neural-network">4 Neural Network</a></li>
+    <li><a href="#5-knn">5 kNN</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>

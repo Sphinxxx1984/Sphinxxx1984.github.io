@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Sphinxxx1984 Blog</title>
+    <link>https://sphinxxx1984.github.io/categories/</link>
+    <description>Recent content in Categories on Sphinxxx1984 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ch-Hans</language>
+    <copyright>©2020, Xinyu Ye. All rights reserved.</copyright>
+    
+	<atom:link href="https://sphinxxx1984.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
