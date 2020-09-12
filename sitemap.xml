@@ -43,12 +43,11 @@
   </url>
   
   <url>
-    <loc>https://sphinxxx1984.github.io/friends/</loc>
-    <priority>0</priority>
+    <loc>https://sphinxxx1984.github.io/categories/</loc>
   </url>
   
   <url>
-    <loc>https://sphinxxx1984.github.io/categories/</loc>
+    <loc>https://sphinxxx1984.github.io/friends/</loc>
   </url>
   
 </urlset>
