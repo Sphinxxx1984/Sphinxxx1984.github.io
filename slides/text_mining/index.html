@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/icons/site.webmanifest">
+<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1559566_wk214kwa2dn.css">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk=" crossorigin="anonymous" />
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/materia/bootstrap.min.css" rel="stylesheet" integrity="sha384-1tymk6x9Y5K+OF0tlmG2fDRcn67QGzBkiM3IgtJ3VrtGrIi5ryhHjKjeeS60f1FA" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" href="/scss/main_cdn.min.a7904e1b4dd319036beffab300b6e0f392d9d91668606461c0223217f0a1484e.min.0bea98018365762d64245fb3838e9db168dbd5fa1410a0be52fe3a3acd1bf4cf.css" integity="sha256-C&#43;qYAYNldi1kJF&#43;zg46dsWjb1foUEKC&#43;Uv46Os0b9M8=">
+
+    <link rel="stylesheet" href="/css/wiki.css" />
+    <link rel="stylesheet" href="/css/slides.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <title>邮件自动分类与数据挖掘</title>
+    <style>
+        div.remark-footer {
+            bottom: 12px;
+            opacity: .5;
+            position: absolute;
+            left: 20px;
+        }
+        .remark-slide > .remark-title,
+        .remark-slide > .remark-center {
+            text-align: center;
+        }
+        .remark-slide > .remark-title,
+        .remark-slide > .remark-middle {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="loading">Loading 邮件自动分类与数据挖掘</p>
+    <textarea id="source" class="d-none">
+
+layout:true
+&lt;div class="remark-footer">&lt;/div>
+---
+
+class: remark-title
+# 邮件自动分类与数据挖掘
+&lt;div style="display: flex; justify-content: center; text-align: center;" id="qrcode">&lt;/div>
+&lt;div class="my-3">https://sphinxxx1984.github.io/slides/text_mining/&lt;/div>
+2020-09-14 07:44 CST
+---
+
+
+## PART ONE 背景分析
+
+邮件分类问题属于文本类的数据挖掘。所谓文本分类，是指对所给出的文本，给出预定义的一个或多个类别标号，对文本进行准确、高效的分类。在本任务中，文本的类别有20种。
+
+一般来说，传统的文本分类过程由以下几个步骤组成：数据预处理、文本特征选择、特征降维、训练分类器和分类性能评估。
+
+![pic](/text-mining/codes/steps.png)
+
+---
+
+## PART TWO 实现思路
+
+### STEP1 数据预处理  STEP2 文本特征提取
+
+我们计算单词TF-IDF值的方式来表示一个邮件的文本特征。
+而在计算文本TF和IDF的过程中，同时对数据进行处理，筛掉一部分不需要的单词。
+
+共使用了5个job来实现，分别是：  
+1.计算单词的TF值  
+2.计算单词的IDF值  
+3.计算单词的TF-IDF值并生成稀疏向量（&lt;单词索引 单词TF-IDF值&gt;）   
+4.输出IDF表中的单词和索引（用于查找配对）  
+5.将3中的稀疏向量的TF-IDF值替换为1并输出（用于朴素贝叶斯）  
+
+定义了一个数据结构KeyWord用来记录文件名，文件夹名（类别标记），单词。
+
+---
+
+#### 1.TfJob 计算单词的TF值
+
+输入：停词表 数据集  
+输出：filename,word,dictName TF  
+
+Mapper  
+在setup中加载停词表（通过addCacheFile的方式加载）  
+
+Map过程如下：  
+(1) 去除掉分隔符  
+(2) 通过StandardAnalyzer分词器进行分词  
+(3) 将分好的单词再次筛选，去除单个字母和带数字的单词  
+(4) 每个KeyWord词频为1，输出  
+
+在cleanup中输出`&lt;__wordNum__, 单词总数&gt;`
+
+---
+
+#### 1.TfJob 计算单词的TF值
+
+Combiner  
+(1) 将Mapper中输出的`&lt;KeyWord, 1&gt;`进行求和  
+(2) 输出`&lt;KeyWord, 总次数&gt;`  
+
+Reducer  
+文档可能超过split尺寸大小，被拆分在多个split被多个Map统计单词数。  
+
+Reduce过程如下：  
+(1) 对各个Map统计的单词总数进行汇总  
+(2) 使用公式计算单词的TF值，按格式输出  
+![pic](/text-mining/codes/1_tf.png)
+
+---
+
+#### 2.IdfJob 计算单词的IDF值
+
+输入：job1的结果  
+输出：word IDF  
+
+通过上一个job的输出统计每个单词出现的文档数  
+通过hadoop.hdfs的API获得输入文档的总数  
+从而利用公式计算IDF  
+![pic](/text-mining/codes/2_idf.png)
+
+---
+
+#### 2.IdfJob 计算单词的IDF值
+
+Mapper  
+读入TfJob的输出，提取出单词word项，输出&lt;单词, 频次1&gt;  
+
+Reducer  
+Reduce过程如下：  
+(1) 计算每个单词出现的文档数  
+(2) 对关键词进行筛选，除去只出现过一次的单词和在90%以上的文档中出现过的词  
+(3) 计算IDF值，输出`&lt;单词, IDF值&gt;`  
+
+---
+
+#### 3.TFIDFJob 计算单词的TF-IDF值
+
+输入：job1、job2的结果  
+输出：稀疏向量 类别标记
+
+使用前两个job的输出，按公式计算出每个单词的TF-IDF值然后组成向量输出。  
+
+具体做法是把TfJob的输出作为输入读入，把IdfJob的输出路径通过Configuration传递，在Mapper中把整个IdfJob的输出读入到一个HashMap中使用。  
+
+Mapper  
+在setup中使用了一个HashMap，存储读入的单词、单词在IDF表中的索引（单词在表中的行号）和IDF值。  
+![pic](/text-mining/codes/3_hashmap.png)
+
+Map过程如下：  
+(1) 拆分Tfjob的输出数据，通过word查找HashMap计算TF-IDF值  
+(2) 组成`&lt;dictName/filename，word TFIDF&gt;`输出  
+
+---
+
+#### 3.TFIDFJob 计算单词的TF-IDF值
+
+Reducer  
+将`&lt;dictName/filename，word TFIDF&gt;`拆分  
+可以通过filename的改变来判断是否改变为另一文档数据，文件名改变以后就输出一次，并重新构造向量。  
+
+对同一个Key的value进行处理，得到索引和TF-IDF值组成的稀疏向量。
+
+---
+
+#### 4.IdfIdxJob 获得IDF表的单词索引
+
+输入：job2的结果  
+输出：word idx（从0开始的行号）  
+
+Mapper  
+Map过程如下：  
+(1) 拆分输入  
+(2) 提取word  
+(3) 统计行数line  
+(4) 输出`&lt;word, line&gt;`  
+
+Reducer  
+直接写入`&lt;word, line&gt;`  
+
+---
+
+#### 5.oneVectorJob 朴素贝叶斯向量
+
+输入：job1、job2的结果  
+输出：0-1稀疏向量 类别标记  
+
+具体过程和TFIDFJob几乎一致，只是把向量中的TF-IDF值换为1，不再赘述。  
+
+---
+
+### STEP3 训练分类器
+
+给定的20个文件夹中共计有19997个文件。除soc.religion.christian文件夹中只有997个文件外，其余的19个文件夹中都有1000个文件。  
+
+集合划分采用留出法(hold-out)，保留其中的6000个样本作为测试集，剩余的13997个样本作为训练集。为了保证测试集和训练集的类别平衡，我们选定的测试集中每个类别的样本数均为300。  
+
+![pic](/text-mining/codes/makeset1.png)
+![pic](/text-mining/codes/makeset2.png)
+
+我们使用了两种分类算法：KNN算法和朴素贝叶斯算法。  
+
+---
+
+#### 1.KNN算法
+
+输入：TF-IDF稀疏向量 类别标记  
+输出：样本真实类别 分类器预测的类别  
+
+在1个job中完成整个训练和分类的过程  
+
+训练阶段  
+KNN算法属于懒惰学习(lazy learning)的一种，训练阶段仅需储存训练集内所有的样本  
+
+训练集通过cache file的形式读入  
+重写Mapper的setup函数以实现样本的储存  
+
+---
+
+#### 1.KNN算法
+
+预测阶段  
+Mapper  
+对于每一个测试集中的样本，计算它们与训练集中所有样本的“距离”  
+如果能进入距离前k近的邻居列表，则进行替换  
+输出`&lt;样本真实类别, 预测样本类别&gt;` 
+
+距离度量算法选择：采用余弦相似度，即计算高维空间中两个特征向量的夹角的余弦值，并进行归一化处理  
+$$\cos(\mathbf{X}, \mathbf{Y}) = \frac{\mathbf{X} \cdot \mathbf{Y}}{|\mathbf{X}||\mathbf{Y}|}$$ 
+超参数k选择：分别取k=1, 3, 5, 10  
+
+Reducer  
+对于样本进行统计和累加  
+输出`&lt;样本真实类别, 预测样本类别&gt;`  
+
+重写Reducer的cleanup函数，输出`&lt;测试集样本数, 分类正确率&gt;`  
+便于在HDFS上第一时间查看分类的总体正确率  
+
+---
+
+####  2.朴素贝叶斯算法
+
+输入：0-1稀疏向量 类别标记  
+输出：样本真实类别 分类器预测的类别  
+
+使用两个job来完成，第一个job完成训练阶段，第二个job完成预测阶段  
+
+使用多项式模型(multinomial model)，以单词为粒度进行概率的计算  
+
+训练阶段  
+Mapper  
+将0-1稀疏向量进行拆分，输出`&lt;类别:词索引, 1&gt;`  
+此外还对每一个样本进行统计，输出`&lt;类别, 总词数&gt;`  
+
+Reducer  
+对于Key相同的输出，把它们的Value进行累加  
+将Mapper的两种格式的输出分类输出到两个文件中  
+
+---
+
+####  2.朴素贝叶斯算法
+
+预测阶段  
+
+Mapper  
+通过cache file的形式读入上一个job的输出。  
+重写Mapper的setup函数，把文件的内容存储到两个HashMap中，同时统计总词数。  
+
+Map过程如下：  
+(1) 对于20个类别，分别计算当前样本属于该类别的概率(由于分母相同，计算中把该值省略)。  
+(2) 取概率最大的类别。  
+输出`&lt;样本真实类别, 预测样本类别&gt;`。 
+
+$$\text{P}(c|\mathbf{x}) = \frac{\text{P}(c)}{\text{P}(\mathbf{x})}\prod_{i=0}^{d}\text{P}(x_i|c)$$
+
+---
+
+####  2.朴素贝叶斯算法
+
+预测阶段  
+Reducer  
+对于样本进行统计和累加  
+输出`&lt;样本真实类别, 预测样本类别&gt;` 
+
+重写Reducer的cleanup函数，输出`&lt;测试集样本数, 分类正确率&gt;`  
+便于在HDFS上第一时间查看分类的总体正确率  
+
+---
+
+### STEP4 分类结果评估
+
+使用Python的matplotlib.pyplot进行可视化  
+
+首先把20个类别的测试样本进行分类的累加，然后再进行图表的绘制  
+
+![pic](/text-mining/codes/visualize1.png)
+
+---
+
+### STEP4 分类结果评估
+
+![pic](/text-mining/codes/visualize2.png)
+
+---
+
+## PART THREE 优化细节
+
+我们主要在分类器的实现上进行了一定的优化。
+
+### KNN算法优化  
+
+原本尝试把所有的训练集样本以HashMap的形式存储，在集群上运行时报错堆空间不足。于是采取“时间换空间”的策略，略微牺牲效率以换取程序的正常运行。  
+
+把训练集拆分成序列化的特征向量字符串和类别标记，分别按序存储到两个ArrayList中。在预测时，从字符串中产生样本的特征向量，然后再与测试集中的样本进行距离的计算。  
+
+---
+
+### KNN算法优化
+
+距离度量：KNN算法常用的距离度量方式有欧氏距离、曼哈顿距离、切比雪夫距离（前三者可以统一为闵可夫斯基距离）和马氏距离。  
+
+$$\cos(\mathbf{X}, \mathbf{Y}) = \frac{\mathbf{X} \cdot \mathbf{Y}}{|\mathbf{X}||\mathbf{Y}|}$$
+
+在我们的实现中，计算的是两个特征向量的余弦相似度。因为原始数据的特性，两个样本的特征往往是比较稀疏的（小于100词，而词典中有6万词）。  
+
+采用这样的距离计算方式，可以更好地衡量两个样本在高维空间中的方向上的相似度，而非距离的远近和长度的大小。  
+
+---
+
+### KNN算法优化
+
+此外，由于测试集的大小并不大（仅有11M左右），且储存在1个文件中，在集群上运行时出现了只有1个Mapper的情况。  
+
+```Java
+TextInputFormat.setMinInputSplitSize(job, 1L);
+TextInputFormat.setMaxInputSplitSize(job, 1024 * 1024);
+```
+
+通过对输入分片的最大大小的调整，实现了9个Mapper的并发处理，效率提升大。  
+原本的分类预计需要运行10个小时左右，改进后只需1小时左右。  
+
+在朴素贝叶斯算法的预测步骤中也采取了相似的处理，但是提升不明显（因为原本的速度就很快）。  
+
+---
+
+### 朴素贝叶斯算法优化
+
+由于原始数据的特性，提取的文本特征向量维度很高且分布稀疏。在概率的计算中，我们采用拉普拉斯修正和映射处理。  
+
+拉普拉斯修正：对先验概率和后验概率的每一个分量进行修正。这样做可以平滑缺失值带来的影响。
+
+![pic](/text-mining/codes/lap2.png)  
+![pic](/text-mining/codes/lap1.png)
+
+映射处理：我们把每一个求得的概率分量（小数）进行取对数的处理，把小数的乘法转换为对数的加法。因为数据的维度很高，一直累乘下去很快就会超过Double类型所能表示的最小数字。  
+
+---
+
+## PART FOUR 结果展示
+
+KNN算法采用不同K值的分类结果如下：
+
+k=1  
+![pic](/text-mining/result/k=1.png)
+
+---
+
+k=3   
+![pic](/text-mining/result/k=3.png)
+
+---
+
+k=5  
+![pic](/text-mining/result/k=5.png)
+
+---
+
+k=10  
+![pic](/text-mining/result/k=10.png)
+
+---
+
+朴素贝叶斯的分类结果如下：  
+![pic](/text-mining/result/bayes.png)
+
+---
+
+### 结果分析
+
+| K | 1 | 3 | 5 | 10 |
+|:---- |:---- |:---- |:---- |:---- |
+| Accuracy | 0.7500 | 0.7418 | 0.7118 | 0.6367 |
+
+KNN分类器中，k=1的最近邻分类器正确率表现最好，达到了0.7500。一方面可能因为选取的文本特征有一定的噪声，另一方面可能因为距离度量的选取（余弦相似度）。  
+
+朴素贝叶斯分类器的正确率高达0.9128，表现相当优秀。  
+
+运行时间方面，KNN算法的运行时长约为1小时（50分钟左右），朴素贝叶斯算法的运行时长约为1分钟。  
+
+        
+---
+
+class: remark-title
+# Thanks
+
+    </textarea><script defer src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    
+    <script type="text/javascript" src="/qrcode.min.08d80845e706a3b9e985b799d3849cd7791ad3ba5aa9d793bb4591d4833890d7299810144874905f416c94d8530da74be0ee520066a91ade05a1da8bf0ccb498.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            const slides = remark.create({});
+            const qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: "https:\/\/sphinxxx1984.github.io\/slides\/text_mining\/",
+                width: 128,
+                height: 128,
+            });
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {
+                        left: "$$",
+                        right: "$$",
+                        display: true
+                    },
+                    {
+                        left: "$",
+                        right: "$",
+                        display: false
+                    },
+                    {
+                        left: "\\[",
+                        right: "\\]",
+                        display: true
+                    },
+                    {
+                        left: "\\(",
+                        right: "\\)",
+                        display: false
+                    },
+                ]
+            });
+            document.getElementById("loading").classList.add("d-none");
+        });
+    </script>
+</body>
+
+</html>

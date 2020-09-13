@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sphinxxx1984 Blog</title>
+    <link>https://sphinxxx1984.github.io/slides/</link>
+    <description>Recent content on Sphinxxx1984 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ch-Hans</language>
+    <copyright>©2020, Xinyu Ye. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 14 Sep 2020 07:44:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://sphinxxx1984.github.io/slides/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>邮件自动分类与数据挖掘</title>
+      <link>https://sphinxxx1984.github.io/slides/text_mining/</link>
+      <pubDate>Mon, 14 Sep 2020 07:44:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/slides/text_mining/</guid>
+      <description>PART ONE 背景分析 邮件分类问题属于文本类的数据挖掘。所谓文本分类，是指对所给出的文本，给出预定义的一个或多个类别标号，对文本进行准确、高效的分类。在本任务中，文本的类别有20种。
+一般来说，传统的文本分类过程由以下几个步骤组成：数据预处理、文本特征选择、特征降维、训练分类器和分类性能评估。
+ PART TWO 实现思路 STEP1 数据预处理 STEP2 文本特征提取 我们计算单词TF-IDF值的方式来表示一个邮件的文本特征。 而在计算文本TF和IDF的过程中，同时对数据进行处理，筛掉一部分不需要的单词。
+共使用了5个job来实现，分别是：
+1.计算单词的TF值
+2.计算单词的IDF值
+3.计算单词的TF-IDF值并生成稀疏向量（&amp;lt;单词索引 单词TF-IDF值&amp;gt;）
+4.输出IDF表中的单词和索引（用于查找配对）
+5.将3中的稀疏向量的TF-IDF值替换为1并输出（用于朴素贝叶斯）
+定义了一个数据结构KeyWord用来记录文件名，文件夹名（类别标记），单词。
+ 1.TfJob 计算单词的TF值 输入：停词表 数据集
+输出：filename,word,dictName TF
+Mapper
+在setup中加载停词表（通过addCacheFile的方式加载）
+Map过程如下：
+(1) 去除掉分隔符
+(2) 通过StandardAnalyzer分词器进行分词
+(3) 将分好的单词再次筛选，去除单个字母和带数字的单词
+(4) 每个KeyWord词频为1，输出
+在cleanup中输出&amp;lt;__wordNum__, 单词总数&amp;gt;
+ 1.TfJob 计算单词的TF值 Combiner
+(1) 将Mapper中输出的&amp;lt;KeyWord, 1&amp;gt;进行求和
+(2) 输出&amp;lt;KeyWord, 总次数&amp;gt;
+Reducer
+文档可能超过split尺寸大小，被拆分在多个split被多个Map统计单词数。
+Reduce过程如下：
+(1) 对各个Map统计的单词总数进行汇总
+(2) 使用公式计算单词的TF值，按格式输出
+ 2.IdfJob 计算单词的IDF值 输入：job1的结果
+输出：word IDF
+通过上一个job的输出统计每个单词出现的文档数
+通过hadoop.hdfs的API获得输入文档的总数
+从而利用公式计算IDF
+ 2.</description>
+    </item>
+    
+  </channel>
+</rss>
