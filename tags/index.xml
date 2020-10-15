@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 08 Sep 2020 07:35:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2020 15:30:00 +0800</lastBuildDate>
     
 	<atom:link href="https://sphinxxx1984.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CG</title>
+      <link>https://sphinxxx1984.github.io/tags/cg/</link>
+      <pubDate>Thu, 15 Oct 2020 15:30:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/tags/cg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mitsuba</title>
+      <link>https://sphinxxx1984.github.io/tags/mitsuba/</link>
+      <pubDate>Thu, 15 Oct 2020 15:30:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/tags/mitsuba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VisualStudio</title>
+      <link>https://sphinxxx1984.github.io/tags/visualstudio/</link>
+      <pubDate>Thu, 15 Oct 2020 15:30:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/tags/visualstudio/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ML</title>

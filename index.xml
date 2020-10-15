@@ -7,10 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 14 Sep 2020 07:44:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2020 15:30:00 +0800</lastBuildDate>
     
 	<atom:link href="https://sphinxxx1984.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mitsuba编译安装踩坑记</title>
+      <link>https://sphinxxx1984.github.io/blog/mitsuba/</link>
+      <pubDate>Thu, 15 Oct 2020 15:30:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/blog/mitsuba/</guid>
+      <description>Introduction 简单记录下我前面两天（13、14日）编译Mitsuba1&amp;amp;Mitsuba2的踩坑过程。
+1 Mitsuba是什么 Mitsuba的主页在这里：link
+简单来说，Mitsuba是一个面向图形学研究的渲染器，用来快速地验证自己的想法，主打的是容易上手、正确性有保障。
+更新到Mitsuba2之后，主要增加了retargetable和differentiable两大特性。更多的介绍可以去看闫令琪大神的知乎回答。
+如何评价Mitsuba2渲染器? - 闫令琪的回答 - 知乎
+2 Windows下Mitsuba2的编译安装 Requirements for Mitsuba2 cmakePython3(&amp;gt;=3.6)Visual Studio 2019 2.1 get codes 首先把代码下载到本地：
+git clone --recursive git@github.com:mitsuba-renderer/mitsuba2.git 如果忘了加上&amp;ndash;recursive选项，需要用下面的命令更新submodule：
+git submodule update --init --recursive 但是实际操作中，这样更新会出一些小问题（某些子模块不太服帖）。所以还是推荐按照第一个指令进行代码的获取。
+2.2 cmake 在..\mitsuba\目录下，运行cmake：
+cmake -G &amp;quot;Visual Studio 16 2019&amp;quot; -A x64 等待cmake执行完毕后，会出现一个mitsuba.sln文件。
+2.3 生成 用VS2019打开项目文件mitsuba.sln，修改选项为Release，生成解决方案。
+等到生成完毕后，可以在mitsuba\dist\目录下找到mitsuba.exe，即代表生成成功。
+在mitsuba\resources\data\scenes下面有一些可供测试的xml文件，按照如下的命令：
+.\mitsuba.exe 1111.xml 即可渲染对应的文件。注意不要乱动文件目录，这些xml文件是有对应的依赖的。
+如果希望能在任意位置使用mitsuba，可以将mitsuba.exe所在的目录添加至环境变量的path中。
+3 Windows下Mitsuba1(0.6)的编译安装 Mitsuba0.6有些年久失修了，整个编译安装的过程非常之痛苦。
+Requirements for Mitsuba0.6 Python3(&amp;gt;=3.6)BoostPython2.</description>
+    </item>
     
     <item>
       <title>邮件自动分类与数据挖掘</title>

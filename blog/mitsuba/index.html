@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ch-Hans">
+
+<head>
+  <title>Mitsuba编译安装踩坑记 | Sphinxxx1984 Blog</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="Mitsuba">
+  <meta name="keywords" content="图形学 , 编译">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mitsuba编译安装踩坑记" />
+  <meta name="twitter:description" content="Mitsuba"/>
+  <meta name="twitter:site" content="https://twitter.com/sphinxxx1984" />
+  <meta name="twitter:creator" content="https://twitter.com/sphinxxx1984" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/sphinxxx1984.github.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "Mitsuba编译安装踩坑记",
+      "headline" : "Mitsuba编译安装踩坑记",
+      "description" : "Mitsuba",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-10-15 15:30:00 \u002b0800 CST",
+      "dateModified" : "2020-10-15 15:30:00 \u002b0800 CST",
+      "url" : "https:\/\/sphinxxx1984.github.io\/blog\/mitsuba\/",
+      "wordCount" : "189",
+      "keywords" : ["图形学", "编译", "Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+      <li>
+        <a  href="/friends">friends</a>
+      </li>
+    
+      <li>
+        <a  href="/slides">slides</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Mitsuba编译安装踩坑记</h1>
+            <time datetime="2020-10-15 15:30:00 &#43;0800 CST" class="post__date">2020-10-15 15:30 CST</time>   
+            <h5>CC BY-NC 4.0</h5> 
+          </header>
+          <article class="post__content">
+              
+<h2 id="introduction">Introduction<a class="anchor" href="#introduction">#</a></h2>
+<p>简单记录下我前面两天（13、14日）编译Mitsuba1&amp;Mitsuba2的踩坑过程。</p>
+<h2 id="1-mitsuba是什么">1 Mitsuba是什么<a class="anchor" href="#1-mitsuba是什么">#</a></h2>
+<p>Mitsuba的主页在这里：<a href="http://www.mitsuba-renderer.org/">link</a></p>
+<p>简单来说，Mitsuba是一个面向图形学研究的渲染器，用来快速地验证自己的想法，主打的是容易上手、正确性有保障。</p>
+<p>更新到Mitsuba2之后，主要增加了retargetable和differentiable两大特性。更多的介绍可以去看闫令琪大神的知乎回答。<br>
+<a href="https://www.zhihu.com/question/376628212/answer/1120415596">如何评价Mitsuba2渲染器? - 闫令琪的回答 - 知乎</a></p>
+<h2 id="2-windows下mitsuba2的编译安装">2 Windows下Mitsuba2的编译安装<a class="anchor" href="#2-windows下mitsuba2的编译安装">#</a></h2>
+<h3 id="requirements-for-mitsuba2">Requirements for Mitsuba2<a class="anchor" href="#requirements-for-mitsuba2">#</a></h3>
+<pre><code>cmake
+Python3(&gt;=3.6)
+Visual Studio 2019
+</code></pre>
+<h3 id="21-get-codes">2.1 get codes<a class="anchor" href="#21-get-codes">#</a></h3>
+<p>首先把代码下载到本地：</p>
+<pre><code class="language-shell">git clone --recursive git@github.com:mitsuba-renderer/mitsuba2.git
+</code></pre>
+<p>如果忘了加上&ndash;recursive选项，需要用下面的命令更新submodule：</p>
+<pre><code class="language-shell">git submodule update --init --recursive
+</code></pre>
+<p>但是实际操作中，这样更新会出一些小问题（某些子模块不太服帖）。所以还是推荐按照第一个指令进行代码的获取。</p>
+<h3 id="22-cmake">2.2 cmake<a class="anchor" href="#22-cmake">#</a></h3>
+<p>在..\mitsuba\目录下，运行cmake：</p>
+<pre><code class="language-shell">cmake -G &quot;Visual Studio 16 2019&quot; -A x64
+</code></pre>
+<p>等待cmake执行完毕后，会出现一个mitsuba.sln文件。</p>
+<h3 id="23-生成">2.3 生成<a class="anchor" href="#23-生成">#</a></h3>
+<p>用VS2019打开项目文件mitsuba.sln，修改选项为Release，生成解决方案。<br>
+等到生成完毕后，可以在mitsuba\dist\目录下找到mitsuba.exe，即代表生成成功。<br>
+在mitsuba\resources\data\scenes下面有一些可供测试的xml文件，按照如下的命令：</p>
+<pre><code class="language-shell">.\mitsuba.exe 1111.xml
+</code></pre>
+<p>即可渲染对应的文件。注意不要乱动文件目录，这些xml文件是有对应的依赖的。<br>
+如果希望能在任意位置使用mitsuba，可以将mitsuba.exe所在的目录添加至环境变量的path中。</p>
+<h2 id="3-windows下mitsuba106的编译安装">3 Windows下Mitsuba1(0.6)的编译安装<a class="anchor" href="#3-windows下mitsuba106的编译安装">#</a></h2>
+<p>Mitsuba0.6有些年久失修了，整个编译安装的过程非常之痛苦。</p>
+<h3 id="requirements-for-mitsuba06">Requirements for Mitsuba0.6<a class="anchor" href="#requirements-for-mitsuba06">#</a></h3>
+<pre><code>Python3(&gt;=3.6)
+Boost
+Python2.7
+Scons2.5.1
+Visual Studio 2017
+Windows Kits
+</code></pre>
+<p>是的，你没有看错，你不仅需要Python2，还同时需要Python3。</p>
+<h3 id="31-安装boost库有可能不需要">3.1 安装Boost库（有可能不需要）<a class="anchor" href="#31-安装boost库有可能不需要">#</a></h3>
+<p>Boost的官方网站：(link)[https://www.boost.org/]<br>
+可以在官方网站上下载最新的压缩包，在本地进行解压。<br>
+保证此时系统默认的Python版本为Python3（命令行输入python，得到的信息是python3相关）。<br>
+在根目录下，执行bootstrap.bat，然后执行b2.exe。等待执行完毕。</p>
+<p>然后需要在Visual Studio中配置boost库：<br>
+属性-配置属性-C/C++-常规-附加包含目录中，填上根目录；<br>
+配置属性-链接器-常规-附加库目录中，填上根目录\stage\lib。</p>
+<h3 id="32-配置clexe">3.2 配置cl.exe<a class="anchor" href="#32-配置clexe">#</a></h3>
+<p>Path变量中，添加：</p>
+<pre><code class="language-shell">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\Hostx64\x64
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE
+</code></pre>
+<p>另外新建两个变量LIB和INCLUDE。</p>
+<p>LIB：</p>
+<pre><code class="language-shell">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x64
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE
+C:\Program Files (x86)\Windows Kits\10\Lib\10.0.17763.0\ucrt\x64
+C:\Program Files (x86)\Windows Kits\10\Lib\10.0.17763.0\um\x64
+C:\Program Files (x86)\Windows Kits\10\Lib\10.0.17763.0\ucrt_enclave\x64
+</code></pre>
+<p>INCLUDE：</p>
+<pre><code class="language-shell">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\cppwinrt
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\shared
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\winrt
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt
+</code></pre>
+<p>检验：在命令行中输入cl，有相关信息即为配置成功。</p>
+<h3 id="33-get-codes">3.3 get codes<a class="anchor" href="#33-get-codes">#</a></h3>
+<p>首先把代码下载到本地：</p>
+<pre><code class="language-shell">git clone git@github.com:mitsuba-renderer/mitsuba.git
+git clone git@github.com:mitsuba-renderer/dependencies_win64.git
+</code></pre>
+<p>然后，将dependencies_win64文件夹重命名为dependencies，移动到mitsuba\目录下。</p>
+<h3 id="34-scons">3.4 scons<a class="anchor" href="#34-scons">#</a></h3>
+<p>保证此时系统默认的Python版本为Python2（命令行输入python，得到的信息是python2相关）。<br>
+解压dependencies目录下的scons-2.5.1.zip，在..\mitsuba\dependencies\scons-2.5.1\下，输入：</p>
+<pre><code class="language-shell">python setup.py install
+</code></pre>
+<p>安装scons2.5.1。</p>
+<p>回到mitsuba\目录，在命令行中输入：</p>
+<pre><code class="language-shell">copy build\config-win64-msvc2017.py .\config.py
+scons
+</code></pre>
+<p>Unknown compiler version警告可以忽略。等到scons执行完毕，在mitsuba\dist\目录下可以找到mitsuba.exe和mtsgui.exe。
+这里如果使用VS2019，会有一个非常神秘的错误，文件无法被编译。暂时没有找到对应的解决方案。</p>
+<h3 id="35-配置gui">3.5 配置GUI<a class="anchor" href="#35-配置gui">#</a></h3>
+<p>如果直接运行mtsgui.exe，应该会Qt有关的错误。<br>
+只需要将mitsuba\dependencies\dist下的platforms文件夹拷贝至mitsuba\dist\下即可。</p>
+<h2 id="summary">Summary<a class="anchor" href="#summary">#</a></h2>
+<p>至此，Mitsuba0.6和Mitsuba2在Windows下的编译安装过程全部解决。<br>
+我在WSL(Ubuntu18.04)下也尝试安装过Mitsuba0.5，遇到了一些问题，暂时没有解决。<br>
+希望世界上再也不要有人去使用老版本构建工具了。</p>
+
+
+              
+                  
+
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="https://sphinxxx1984.github.io/tags/cg/">cg</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://sphinxxx1984.github.io/tags/visualstudio/">visualstudio</a>
+    </li>
+    <li class="tag__item">
+        <a class="tag__link" href="https://sphinxxx1984.github.io/tags/mitsuba/">mitsuba</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="https://sphinxxx1984.github.io/blog/some_ml_algorithms/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">一些经典机器学习分类算法的介绍</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="GitHub"
+         href="https://github.com/Sphinxxx1984"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="LinkedIn"
+         href="https://www.linkedin.com/in/njuxinyuye/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/linkedin.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Email"
+         href="mailto:sphinxxx1984@gmail.com"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/email.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Weibo"
+         href="https://weibo.com/u/5209694645"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/weibo.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Music"
+         href="https://music.163.com/#/user/home?id=115229114"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/music.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Instagram"
+         href="https://www.instagram.com/sphinx1984/"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/instagram.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="Twitter"
+         href="https://twitter.com/sphinxxx1984"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('https://sphinxxx1984.github.io/svg/twitter.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>@2020, Xinyu Ye. All rights reserved.</p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+           <div class="toc-post-title">Mitsuba编译安装踩坑记</div> 
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#1-mitsuba是什么">1 Mitsuba是什么</a></li>
+    <li><a href="#2-windows下mitsuba2的编译安装">2 Windows下Mitsuba2的编译安装</a>
+      <ul>
+        <li><a href="#requirements-for-mitsuba2">Requirements for Mitsuba2</a></li>
+        <li><a href="#21-get-codes">2.1 get codes</a></li>
+        <li><a href="#22-cmake">2.2 cmake</a></li>
+        <li><a href="#23-生成">2.3 生成</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-windows下mitsuba106的编译安装">3 Windows下Mitsuba1(0.6)的编译安装</a>
+      <ul>
+        <li><a href="#requirements-for-mitsuba06">Requirements for Mitsuba0.6</a></li>
+        <li><a href="#31-安装boost库有可能不需要">3.1 安装Boost库（有可能不需要）</a></li>
+        <li><a href="#32-配置clexe">3.2 配置cl.exe</a></li>
+        <li><a href="#33-get-codes">3.3 get codes</a></li>
+        <li><a href="#34-scons">3.4 scons</a></li>
+        <li><a href="#35-配置gui">3.5 配置GUI</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+    <script src="/js/table-of-contents.js"></script>
+  
+
+
+</body>
+
+</html>
