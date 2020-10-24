@@ -7,10 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 14 Sep 2020 07:44:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2020 22:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://sphinxxx1984.github.io/slides/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>咖啡冲煮教学</title>
+      <link>https://sphinxxx1984.github.io/slides/pour-over_coffee/</link>
+      <pubDate>Sat, 24 Oct 2020 22:00:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/slides/pour-over_coffee/</guid>
+      <description>咖啡的品饮 &amp;ndash;
+风味是一个笼统的概念，它实际上包括挥发性的香气、水溶性的味道和触感
+&amp;ndash;
+ 香气：鼻前嗅觉（鼻子嗅闻）/鼻前嗅觉（通过口腔进入鼻腔）  &amp;ndash;
+ 水溶性的味道：酸、甜、苦共同作用  &amp;ndash;
+ 触感：厚薄度（Body），清爽还是浓稠  &amp;ndash;
+嗅觉和味觉会共同作用
+&amp;ndash;
+香气、味道、触感共同构成了一种整体印象，我们把它称之为“风味”，通常用与之有关联/类似的东西来描述
+ 如何描述风味 &amp;ndash;
+一般使用咖啡风味轮
+&amp;ndash;
+但是原版咖啡风味轮太复杂了，不适合初学者参考
+&amp;ndash;
+ 几个主要的方向：花、水果、草本、坚果、焦糖、巧克力、辛香  &amp;ndash;
+今天可能会使用到的风味词汇  花香、蜂蜜甜感、焦糖甜感、柑橘、莓果、热带水果、酒韵  &amp;ndash;
+咖啡的品饮要求饮者平时多去使用味觉和嗅觉，获得各种各样的体验，才能在喝咖啡时产生相应的词汇联想
+ 咖啡冲煮的框架与思路 &amp;ndash;
+咖啡萃取的目标：尽可能多地从咖啡豆中萃取正面的风味物质，同时不萃取过多的负面风味物质
+&amp;ndash;
+ 总体来说，正面的物质萃取速率较快，负面的物质萃取速率较慢  &amp;ndash;
+ 所以萃取的时间要适宜，不宜过长（过萃），也不宜过短（萃取不足）  &amp;ndash;
+咖啡冲煮中的变量：
+&amp;ndash;
+ 水温  &amp;ndash;
+ 研磨度  &amp;ndash;
+ 滤杯  &amp;ndash;
+ 注水方式（空间分布、速率）  &amp;ndash;
+ 咖啡冲煮的一般流程 &amp;ndash;</description>
+    </item>
     
     <item>
       <title>邮件自动分类与数据挖掘</title>
