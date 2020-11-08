@@ -7,10 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 24 Oct 2020 22:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2020 21:55:00 +0800</lastBuildDate>
     
 	<atom:link href="https://sphinxxx1984.github.io/slides/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>咖啡杯测教学</title>
+      <link>https://sphinxxx1984.github.io/slides/coffee_cupping/</link>
+      <pubDate>Sun, 08 Nov 2020 21:55:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/slides/coffee_cupping/</guid>
+      <description>什么是杯测 &amp;ndash;
+在一些相对固定的萃取条件下，我们通过品尝咖啡，使用一些风味描述词汇去表达品饮时的嗅觉、味觉体验，对咖啡豆的干湿香、触感、风味等10项标准进行打分，最终给出一个分数。
+&amp;ndash;
+市面上的精品咖啡，一般都是杯测分数达到80+的咖啡。杯测分数达到90+的咖啡，往往能卖出不错的价钱。
+ 杯测的流程 &amp;ndash;
+ 准备工作：
+咖啡豆、水、杯测表
+杯测碗、杯测勺、玻璃杯、电热水壶、计时器、电子秤  &amp;ndash;
+杯测需要在安静、干净的场所进行，同时应尽量关闭手机，避免外界的打扰。
+ 杯测的流程 &amp;ndash;
+  水温：93℃-94℃
+  水质：TDS在125ppm-175ppm之间，不应低于75ppm或高于250ppm
+  研磨度：20目筛网 通过率为70%-75%
+  粉水比：约1：18.18（8.25g粉:150ml水）
+  &amp;ndash;
+同一支豆子，应准备至少五杯。
+ 杯测的流程 &amp;ndash;
+ STEP1 研磨，嗅闻干香  &amp;ndash;
+ STEP2 注水，静置浸泡4分钟  &amp;ndash;
+ STEP3 破渣、捞渣，嗅闻湿香  &amp;ndash;
+ STEP4 待降温后，啜吸品饮（较热 / 温 / 凉）  &amp;ndash;
+ STEP5 填写杯测表进行评价   杯测评分标准 &amp;ndash;
+ 干香(Fragrance)/湿香(Aroma)  &amp;ndash;</description>
+    </item>
     
     <item>
       <title>咖啡冲煮教学</title>
