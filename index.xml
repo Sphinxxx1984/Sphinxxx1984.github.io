@@ -7,10 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 08 Nov 2020 21:55:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2020 02:30:00 +0800</lastBuildDate>
     
 	<atom:link href="https://sphinxxx1984.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>给NJU CS 18级学生的求职经验分享</title>
+      <link>https://sphinxxx1984.github.io/slides/job_seeking/</link>
+      <pubDate>Mon, 16 Nov 2020 02:30:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/slides/job_seeking/</guid>
+      <description>求职经验分享 计算机科学与技术系 17级 叶新宇
+ 目录 1 自我介绍
+2 求职经历分享
+3 简历准备
+4 面试经验
+5 准备工作
+6 杂谈
+ 自我介绍 &amp;ndash;
+ 计算机应用方向，GPA排名约40%  &amp;ndash;
+ 代码能力较强，数学能力相对一般  &amp;ndash;
+ 知识面宽广，前端、后端、客户端、图形学、数据科学都有涉猎  &amp;ndash;
+ 对科研不感兴趣，对研发类的工作有浓厚的兴趣  &amp;ndash;
+ 曾有两年社团负责人的经历   求职经历分享 &amp;ndash;
+ 实习投递公司：腾讯、阿里巴巴、网易、字节跳动  &amp;ndash;
+ 然而都没有通过，最终无实习经历。  &amp;ndash;
+ 秋招投递公司：腾讯、阿里巴巴、网易、字节跳动  &amp;ndash;
+ Offer：网易雷火 游戏研发工程师（客户端方向）   求职经历分享 &amp;ndash;
+ 应聘全流程：  &amp;ndash;
+8月2日 笔试
+&amp;ndash;
+8月6日 一面+二面</description>
+    </item>
     
     <item>
       <title>咖啡杯测教学</title>
