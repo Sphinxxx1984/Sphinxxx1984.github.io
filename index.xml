@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 22 Nov 2020 06:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2020 12:50:00 +0800</lastBuildDate>
     
 	<atom:link href="https://sphinxxx1984.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>咖啡冲煮进阶</title>
       <link>https://sphinxxx1984.github.io/slides/coffee_adjustment/</link>
-      <pubDate>Sun, 22 Nov 2020 06:00:00 +0800</pubDate>
+      <pubDate>Sun, 22 Nov 2020 12:50:00 +0800</pubDate>
       
       <guid>https://sphinxxx1984.github.io/slides/coffee_adjustment/</guid>
       <description>复习一下 &amp;ndash;
@@ -43,16 +43,14 @@ STEP4：晃匀，开始品饮
  咖啡冲煮中的变量 &amp;ndash;
  水温  &amp;ndash;
  研磨度  &amp;ndash;
+ 粉水比  &amp;ndash;
  时间  &amp;ndash;
  滤杯  &amp;ndash;
  滤纸  &amp;ndash;
  注水方式（分布、速率）   水温 &amp;ndash;
 温度越高，萃取速率越快；温度越低，萃取速率越慢。
 &amp;ndash;
-一般来说，浅度烘焙的咖啡豆比较耐萃，需要用较高的水温。（92-94℃）
-&amp;ndash;
-深度烘焙的咖啡豆比较容易过萃，需要用较低的水温（85℃）
- 研磨度 &amp;ndash;</description>
+一般来说，浅度烘焙的咖啡豆比较耐萃，需要用较高的水温。（92-94℃）</description>
     </item>
     
     <item>
