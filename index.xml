@@ -7,10 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 22 Nov 2020 12:50:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 13 Dec 2020 04:40:00 +0800</lastBuildDate>
     
 	<atom:link href="https://sphinxxx1984.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>咖啡风味的奥秘</title>
+      <link>https://sphinxxx1984.github.io/slides/coffee_flavor/</link>
+      <pubDate>Sun, 13 Dec 2020 04:40:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/slides/coffee_flavor/</guid>
+      <description>什么是咖啡的风味 &amp;ndash;
+风味是一个笼统的概念，它实际上包括挥发性的香气、水溶性的味道和触感
+&amp;ndash;
+ 香气：鼻前嗅觉（鼻子嗅闻）/鼻前嗅觉（通过口腔进入鼻腔）  &amp;ndash;
+ 水溶性的味道：酸、甜、苦共同作用  &amp;ndash;
+ 触感：厚薄度（Body），清爽还是浓稠  &amp;ndash;
+嗅觉和味觉会共同作用
+&amp;ndash;
+香气、味道、触感共同构成了一种整体印象，我们把它称之为“风味”，通常用与之有关联/类似的东西来描述
+&amp;ndash;
+简单点说，味觉+嗅觉+触觉整体得到的所有信息叫做“风味”。
+ 咖啡风味的描述方式 &amp;ndash;
+ 一般来说，用食物类/有气味的物质来描述咖啡的香气/味道，用厚重/轻盈等词汇来描述触感。  &amp;ndash;
+ 咖啡的生豆/熟豆常常会有很多的风味描述词汇，一般由产地杯测师/烘焙师杯测得出。   咖啡风味轮 &amp;ndash;
+  由精品咖啡协会SCA制作
+  共有9大风味类别：植物与蔬菜、发酵与酸、水果、花、甜味、坚果与可可、香料、烘焙、其他
+   植物与蔬菜类 &amp;ndash;
+ 橄榄油  &amp;ndash;
+ 生味（生豆味）  &amp;ndash;
+ 青菜/植物：未成熟、豆荚、新鲜、深绿青菜、植物、干草、草药  &amp;ndash;
+ 豆子   酸与发酵类 &amp;ndash;
+ 酸：酸香、醋酸、酪酸、异戊酸、柠檬酸、苹果酸  &amp;ndash;
+ 酒/发酵：红酒、威士忌、发酵、熟透   水果类 &amp;ndash;</description>
+    </item>
     
     <item>
       <title>咖啡冲煮进阶</title>
