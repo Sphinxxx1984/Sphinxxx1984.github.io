@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game on Sphinxxx1984 Blog</title>
+    <link>https://sphinxxx1984.github.io/tags/game/</link>
+    <description>Recent content in Game on Sphinxxx1984 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ch-Hans</language>
+    <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 09 Feb 2021 18:20:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://sphinxxx1984.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gamker&#39;s Note 01</title>
+      <link>https://sphinxxx1984.github.io/blog/gamkers-note-01/</link>
+      <pubDate>Tue, 09 Feb 2021 18:20:00 +0800</pubDate>
+      
+      <guid>https://sphinxxx1984.github.io/blog/gamkers-note-01/</guid>
+      <description>Introduction 这会是一个长期更新的系列，以笔记的形式记载我对游戏开发的一些粗浅的认知和理解。除了程序（我的本职），也会交代一些我对其他岗位的工作的看法。
+1 游戏开发是一种什么样的工作 简单而言，游戏开发和其他类型的商业软件开发在本质上是没有区别的，都是根据需求来编写程序、完成任务。
+从一个开发者的角度，不同点主要体现在以下方面：
+   软件规模更加庞大
+其他类型的商业软件，代码量和资源量在通常情况下都无法与游戏相提并论。    更加复杂的变化
+与其他软件相比，游戏中产生变化的可能性更大，产生变化的节奏更快，变化的种类更多。    性能要求
+游戏对于计算机（或其他设备）硬件的要求通常高于一些常规的软件，会占用大量的CPU、GPU和内存资源。不同的玩家，拥有的这些硬件资源是有着显著的不同的。    2 游戏开发中一些应当被遵守的准则    不要写难以维护和修改的代码
+在你的游戏中可能存在很多的常量，你的逻辑代码可能与它们产生了过强的耦合（尤其是条件判断中的一些常量）。如果你要对它们进行管理与修改，会是一件非常痛苦的工作。
+逻辑与常量的强耦合在任何时刻都是应当避免的，如果一定要这样做，需要有能快速定位、修改这些常量的方法。建议在开发的早期就维护好一个工具，对游戏中的常量进行维护和管理。    统一命名标准
+游戏的代码中会存在非常多的接口和全局变量。对于个人开发者而言，你可能非常熟悉自己的命名方式，不会有找不到东西的困惑感。
+对于一个多人的游戏开发团队，务必要把命名标准制定下来，在有必要时维护一个实时更新的文档。易读、统一的命名方式会给他人的工作带来极大的便利。    时刻考虑代码执行的效率
+对于软件开发的老手而言，这一点可能一直是考量的目标。
+一个游戏的规模是非常庞大的，开发、维护的时间跨度也非常大。一些代码的执行效率在数据量不大的时候可能没有问题，但在数据规模逐渐增长后会变得令人难以容忍。
+为了避免这种情况，我们要谨慎地使用一些时间复杂度达到O(n^2)及以上的代码逻辑，保证游戏的交互、响应时间能在玩家可接受的范围内（这个时间一般是0.3s左右）。    </description>
+    </item>
+    
+  </channel>
+</rss>
