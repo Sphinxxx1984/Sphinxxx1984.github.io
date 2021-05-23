@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ML on CoDeBlooD Blog</title>
-    <link>https://sphinxxx1984.github.io/tags/ml/</link>
+    <link>https://codebloo-d.github.io/tags/ml/</link>
     <description>Recent content in ML on CoDeBlooD Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
     <lastBuildDate>Tue, 08 Sep 2020 07:35:00 +0800</lastBuildDate>
     
-	<atom:link href="https://sphinxxx1984.github.io/tags/ml/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://codebloo-d.github.io/tags/ml/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>一些经典机器学习分类算法的介绍</title>
-      <link>https://sphinxxx1984.github.io/blog/some_ml_algorithms/</link>
+      <link>https://codebloo-d.github.io/blog/some_ml_algorithms/</link>
       <pubDate>Tue, 08 Sep 2020 07:35:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/blog/some_ml_algorithms/</guid>
+      <guid>https://codebloo-d.github.io/blog/some_ml_algorithms/</guid>
       <description>Introduction 分类是什么，怎么样分类呢？分类是什么意思出自哪里？为什么一瞬间就有好多人进行分类？为什么大家都在分类？相信不少同学都想了解这个操作，下面就让小编来为大家介绍一下怎么推导经典的分类算法的详细内容。
 1 J4.8(C4.5) 决策树(dicision tree)是一种常见的机器学习方法。以二分类任务为例，我们希望从给定训练数据集学得一个模型用以对新示例进行分类，这个把样本分类的任务，可看作对“当前样本属于正类吗？”这个问题的“决策”或“判定”过程。
 顾名思义，决策树是基于树结构来进行决策的。决策过程中提出的每个判定问题都是对某个属性的“测试”，每个测试的结果或是导出最终结论，或是导出进一步的判定问题，其考虑范围是在上次决策结果的限定范围之内。决策过程的最终结论对应了我们所希望的判定结果。

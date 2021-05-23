@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Slides on CoDeBlooD Blog</title>
-    <link>https://sphinxxx1984.github.io/slides/</link>
+    <link>https://codebloo-d.github.io/slides/</link>
     <description>Recent content in Slides on CoDeBlooD Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
     <lastBuildDate>Sun, 13 Dec 2020 04:40:00 +0800</lastBuildDate>
     
-	<atom:link href="https://sphinxxx1984.github.io/slides/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://codebloo-d.github.io/slides/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>咖啡风味的奥秘</title>
-      <link>https://sphinxxx1984.github.io/slides/coffee_flavor/</link>
+      <link>https://codebloo-d.github.io/slides/coffee_flavor/</link>
       <pubDate>Sun, 13 Dec 2020 04:40:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/slides/coffee_flavor/</guid>
+      <guid>https://codebloo-d.github.io/slides/coffee_flavor/</guid>
       <description>什么是咖啡的风味 &amp;ndash;
 风味是一个笼统的概念，它实际上包括挥发性的香气、水溶性的味道和触感
 &amp;ndash;
@@ -45,10 +45,10 @@
     
     <item>
       <title>咖啡冲煮进阶</title>
-      <link>https://sphinxxx1984.github.io/slides/coffee_adjustment/</link>
+      <link>https://codebloo-d.github.io/slides/coffee_adjustment/</link>
       <pubDate>Sun, 22 Nov 2020 12:50:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/slides/coffee_adjustment/</guid>
+      <guid>https://codebloo-d.github.io/slides/coffee_adjustment/</guid>
       <description>复习一下 &amp;ndash;
 风味是一个笼统的概念，它实际上包括挥发性的香气、水溶性的味道和触感
 &amp;ndash;
@@ -86,10 +86,10 @@ STEP4：晃匀，开始品饮
     
     <item>
       <title>给NJU CS 18级学生的求职经验分享</title>
-      <link>https://sphinxxx1984.github.io/slides/job_seeking/</link>
+      <link>https://codebloo-d.github.io/slides/job_seeking/</link>
       <pubDate>Mon, 16 Nov 2020 02:30:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/slides/job_seeking/</guid>
+      <guid>https://codebloo-d.github.io/slides/job_seeking/</guid>
       <description>求职经验分享 计算机科学与技术系 17级 叶新宇
  目录 1 自我介绍
 2 求职经历分享
@@ -115,10 +115,10 @@ STEP4：晃匀，开始品饮
     
     <item>
       <title>咖啡杯测教学</title>
-      <link>https://sphinxxx1984.github.io/slides/coffee_cupping/</link>
+      <link>https://codebloo-d.github.io/slides/coffee_cupping/</link>
       <pubDate>Sun, 08 Nov 2020 21:55:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/slides/coffee_cupping/</guid>
+      <guid>https://codebloo-d.github.io/slides/coffee_cupping/</guid>
       <description>什么是杯测 &amp;ndash;
 在一些相对固定的萃取条件下，我们通过品尝咖啡，使用一些风味描述词汇去表达品饮时的嗅觉、味觉体验，对咖啡豆的干湿香、触感、风味等10项标准进行打分，最终给出一个分数。
 &amp;ndash;
@@ -146,10 +146,10 @@ STEP4：晃匀，开始品饮
     
     <item>
       <title>咖啡冲煮教学</title>
-      <link>https://sphinxxx1984.github.io/slides/pour-over_coffee/</link>
+      <link>https://codebloo-d.github.io/slides/pour-over_coffee/</link>
       <pubDate>Sat, 24 Oct 2020 22:00:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/slides/pour-over_coffee/</guid>
+      <guid>https://codebloo-d.github.io/slides/pour-over_coffee/</guid>
       <description>咖啡的品饮 &amp;ndash;
 风味是一个笼统的概念，它实际上包括挥发性的香气、水溶性的味道和触感
 &amp;ndash;
@@ -183,10 +183,10 @@ STEP4：晃匀，开始品饮
     
     <item>
       <title>邮件自动分类与数据挖掘</title>
-      <link>https://sphinxxx1984.github.io/slides/text_mining/</link>
+      <link>https://codebloo-d.github.io/slides/text_mining/</link>
       <pubDate>Mon, 14 Sep 2020 07:44:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/slides/text_mining/</guid>
+      <guid>https://codebloo-d.github.io/slides/text_mining/</guid>
       <description>PART ONE 背景分析 邮件分类问题属于文本类的数据挖掘。所谓文本分类，是指对所给出的文本，给出预定义的一个或多个类别标号，对文本进行准确、高效的分类。在本任务中，文本的类别有20种。
 一般来说，传统的文本分类过程由以下几个步骤组成：数据预处理、文本特征选择、特征降维、训练分类器和分类性能评估。
  PART TWO 实现思路 STEP1 数据预处理 STEP2 文本特征提取 我们计算单词TF-IDF值的方式来表示一个邮件的文本特征。 而在计算文本TF和IDF的过程中，同时对数据进行处理，筛掉一部分不需要的单词。

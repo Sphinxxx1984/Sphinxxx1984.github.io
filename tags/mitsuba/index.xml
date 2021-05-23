@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mitsuba on CoDeBlooD Blog</title>
-    <link>https://sphinxxx1984.github.io/tags/mitsuba/</link>
+    <link>https://codebloo-d.github.io/tags/mitsuba/</link>
     <description>Recent content in mitsuba on CoDeBlooD Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
     <lastBuildDate>Thu, 15 Oct 2020 15:30:00 +0800</lastBuildDate>
     
-	<atom:link href="https://sphinxxx1984.github.io/tags/mitsuba/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://codebloo-d.github.io/tags/mitsuba/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mitsuba编译安装踩坑记</title>
-      <link>https://sphinxxx1984.github.io/blog/mitsuba/</link>
+      <link>https://codebloo-d.github.io/blog/mitsuba/</link>
       <pubDate>Thu, 15 Oct 2020 15:30:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/blog/mitsuba/</guid>
+      <guid>https://codebloo-d.github.io/blog/mitsuba/</guid>
       <description>Introduction 简单记录下我前面两天（13、14日）编译Mitsuba1&amp;amp;Mitsuba2的踩坑过程。
 1 Mitsuba是什么 Mitsuba的主页在这里：link
 简单来说，Mitsuba是一个面向图形学研究的渲染器，用来快速地验证自己的想法，主打的是容易上手、正确性有保障。

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Game on CoDeBlooD Blog</title>
-    <link>https://sphinxxx1984.github.io/tags/game/</link>
+    <link>https://codebloo-d.github.io/tags/game/</link>
     <description>Recent content in Game on CoDeBlooD Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-Hans</language>
     <copyright>@2020, Xinyu Ye. All rights reserved.</copyright>
     <lastBuildDate>Tue, 09 Feb 2021 18:20:00 +0800</lastBuildDate>
     
-	<atom:link href="https://sphinxxx1984.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://codebloo-d.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gamker&#39;s Note 01</title>
-      <link>https://sphinxxx1984.github.io/blog/gamkers-note-01/</link>
+      <link>https://codebloo-d.github.io/blog/gamkers-note-01/</link>
       <pubDate>Tue, 09 Feb 2021 18:20:00 +0800</pubDate>
       
-      <guid>https://sphinxxx1984.github.io/blog/gamkers-note-01/</guid>
+      <guid>https://codebloo-d.github.io/blog/gamkers-note-01/</guid>
       <description>Introduction 这会是一个长期更新的系列，以笔记的形式记载我对游戏开发的一些粗浅的认知和理解。除了程序（我的本职），也会交代一些我对其他岗位的工作的看法。
 1 游戏开发是一种什么样的工作 简单而言，游戏开发和其他类型的商业软件开发在本质上是没有区别的，都是根据需求来编写程序、完成任务。
 从一个开发者的角度，不同点主要体现在以下方面：
