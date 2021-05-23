@@ -1,6 +1,6 @@
 # Introduction
 
-Personal Blog of Sphinxxx1984.  
+Personal Blog of CoDeBloo-D(a.k.a CoDe_BlooD)..  
 
 Theme: [link](https://github.com/jakewies/hugo-theme-codex)  
 
